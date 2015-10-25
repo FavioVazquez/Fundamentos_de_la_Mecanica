@@ -1,6 +1,6 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-lcroman]{babel}
 \usepackage[affil-it]{authblk}
 \usepackage{enumerate}
 \usepackage{graphicx}
@@ -296,5 +296,102 @@ $$
 (Los conjuntos cerrados entonces obedecen las reglas duales a las de los conjuntos abiertos.}
 
 \vspace{.3cm}
+
+\newpage
+
+\section{{\huge{Capítulo 3}}}
+
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+
+\vspace{.3cm}
+
+{\Large \textbf{Sistemas hamiltonianos y lagrangianos}}
+
+\vspace{4cm}
+
+Este capítulo comienza nuestro estudio de la mecánica hamiltoniana. La 
+estructura básica de la teoría clásica será dada en el contexto de 
+variedades. Sugerimos al lector tener un buen texto disponible para 
+comparación y una visión adicional, como Whittaker [1959] o Goldstein [1950]. 
+Una re-lectura de la Vista Previa en este momento puede ayudar a motivar 
+lo que sigue. El tratamiento podrá parecer innecesariamente abstracta, 
+pero es de un beneficio final para un entendimiento minucioso de un 
+análisis riguroso de las aplicaciones en posteriores capítulos.
+
+\subsection{Álgebra simpléctica}
+
+Las variedades simplécticas constituyen el escenario para la mecánica 
+hamiltoniana. Esta sección considera el caso lineal en la preparación 
+para la siguiente sección.
+
+\subsubsection{Definición}
+
+\emph{Sea \textbf{E} un espacio vectorial real de dimensión finita y 
+$\mathbf{\omega} \in L^2(\mathbf{E},\mathbf{R})$ una forma bilineal
+sobre $\mathbf{E}$, por lo que $\mathbf{\omega}: \mathbf{E}\times \mathbf{E} 
+\rightarrow \mathbf{R}$. Decimos que $\mathbf{\omega}$ es no degenerada 
+si}
+
+$$
+\mathbf{\omega}(\mathbf{e}_1, \mathbf{e}_2) = 0 \quad \text{\emph{para toda}}
+\quad \mathbf{e}_2 \in \mathbf{E} \quad \text{\emph{implica}} \quad 
+\mathbf{e}_1 = 0
+$$
+
+\emph{Hay algunas maneras equivalentes de expresar la no degeneración. Para 
+dar estas, necesitamos un poco de notación:}
+
+\begin{enumerate}[label=({\alph*})]
+ \item \emph{Si $\hat{\mathbf{e}} = (\mathbf{e}_i)$ es una base 
+ (ordenada) de $\mathbf{E}$ y $(\mathbf{\alpha}^i)$ es la base dual, 
+ $\omega_{ij} = \mathbf{\omega}(\mathbf{e}_i,\mathbf{e}_j)$ es la 
+ \textbf{matrix} de $\mathbf{\omega}$; es denotada $[\mathbf{\omega}]_{\hat{\mathbf{e}}}$. 
+ Entonces es fácil ver que }
+ 
+ $$
+ \mathbf{\omega} = \omega_{ij} \mathbf{\alpha}^i \otimes \mathbf{\alpha^j} \quad \text{\emph{(suma entendida)}}
+ $$
+ 
+ \item \emph{La \textbf{transpuesta} $\mathbf{\omega}^i$ de $\mathbf{\omega}$ está dada 
+ por }
+ 
+ $$
+ \mathbf{\omega}^t(\mathbf{e}_1,\mathbf{e}_2) = \mathbf{\omega}(\mathbf{e}_2,\mathbf{e}_1);
+ $$
+ 
+ \emph{$\mathbf{\omega}$ es \textbf{simétrica} si $\mathbf{\omega}^t = \mathbf{\omega}$ 
+ y \textbf{anti-simétrica} si $\mathbf{\omega}^t = - \mathbf{\omega}$.}
+ 
+ \item \emph{El mapeo lineal $\mathbf{\omega}^b: \mathbf{E} \rightarrow \mathbf{E}^*$ 
+ está definido por}
+ 
+ $$
+ \mathbf{\omega}^b(\mathbf{e})\cdot\mathbf{e}' = \mathbf{\omega}(\mathbf{e},\mathbf{e}')
+ $$
+ 
+ \emph{notemos que la matriz $\mathbf{\omega}^b$ relativa a las bases $\mathbf{e}_i$ y 
+ $\mathbf{\alpha}^j$ es exactamente $\omega_{ij}$, es decir,} 
+ 
+ $$
+ \mathbf{\omega}^b(\mathbf{e}_i) = \omega_{ij}\mathbf{\alpha}^j
+ $$
+ 
+ \emph{el rango de $\mathbf{\omega}$ es el rango de la matriz $\omega_{ij}$, es decir, 
+ la dimensión de $\mathbf{\omega}^b(\mathbf{E})$.}
+\end{enumerate}
+
+Si uno usa (i) el hecho de que en dimensiones finitas un mapeo lineal uno-a-uno 
+entre espacio de la misma dimensión es un isomorfismo y (ii) la observación de 
+que la definición de no degeneración es precisamente que el mapeo lineal $\mathbf{\omega}^b$ 
+es uno-a-uno; es decir, tiene un núcleo trivial, es fácil ver que lo siguiente 
+es equivalente:
+
+\begin{enumerate}[label=({\roman*})]
+ \item $\mathbf{\omega}$ es no degenerado;
+ \item $\mathbf{\omega}^t$ es no degenerado;
+ \item la matriz de $\mathbf{\omega}$ es no singular;
+ \item $\mathbf{\omega}^t:\mathbf{E} \rightarrow \mathbf{E}^*$ es un isomorfismo.
+\end{enumerate}
+
 
 \end{document}
