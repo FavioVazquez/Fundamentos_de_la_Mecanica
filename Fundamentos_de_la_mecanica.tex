@@ -82,6 +82,14 @@
     \vskip0.5em}%
 }
 
+% Definition of sections and their numbering 
+
+\makeatletter
+\def\@seccntformat#1{%
+  \expandafter\ifx\csname c@#1\endcsname\c@section\else
+  \csname the#1\endcsname\quad
+  \fi}
+\makeatother
 
 %opening
 {\title{{\huge Fundamentos de la Mecánica} \\
@@ -198,8 +206,53 @@ $3 \times 3$ con determinante $+1$. No solo las variedades son importantes en es
 ejemplos, sino que también su terminología y notación llevan a un entendimiento más 
 claro de la estructura básica de la mecánica.
 
+\newpage
+
+\resizebox{.5\linewidth}{!}{\itshape \textbf{Parte 1}}
+
+\vspace{.3cm}
+
+\noindent\rule[0.5ex]{.55\linewidth}{1pt}
+
+\resizebox{.5\linewidth}{!}{\itshape \textbf{Preliminares}}
+
+\noindent\rule[0.5ex]{.55\linewidth}{1pt}
+
+\vspace{4cm}
+
+Las herramientas básicas necesarias para nuestro estudio de la mecánica se desarrollan
+aquí. Herramientas más especializadas son desarrolladas luego cuando se necesiten. 
+Aquellos con el entrenamiento matemático suficiente pueden por supuesto saltarse
+esta parte luego de familiarizarse con nuestra notación. Obviamente uno no puede 
+esperar dominar todos los preliminares si uno está comenzando desde cero, sin un 
+esfuerzo masivo. Por lo tanto, parece sabio primero ir por esta parte rápidamente y 
+luego, comenzando con la Parte 2, volver cuando surja la ocasión para un segundo 
+estudio más serio.
 
 
+
+\newpage 
+
+\section{{\huge{Capítulo 1}}}
+
+\noindent\rule[0.5ex]{\linewidth}{1pt}
+
+\vspace{.3cm}
+
+{\Large \textbf{Teoría diferencial}}
+
+\vspace{4cm}
+
+Las categorías de las variedades diferenciales y de los haces vectoriales proveen un 
+contexto útil para las matemáticas necesitadas en la mecánica, especialmente los 
+nuevos resultados topológicos y cualitativos. Este capítulo desarrolla estas categorías.
+Las herramientas para este desarrollo --- la topología y el cálculo en espacio lineales ---
+se estudian primero.
+
+\subsection{Topología}
+
+Uno de las mayores dificultades que este libro presente a los no matemáticos es la 
+dependencia en la topología general.
 
 
 \end{document}
