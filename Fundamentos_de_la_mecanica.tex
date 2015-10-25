@@ -252,7 +252,47 @@ se estudian primero.
 \subsection{Topología}
 
 Uno de las mayores dificultades que este libro presente a los no matemáticos es la 
-dependencia en la topología general.
+dependencia en la topología general. Aunque referencias excelentes están disponibles, 
+los tópicos requeridos no pueden encontrarse todos en un solo texto, y la variación 
+de notaciones y orden en los diferentes libros presentan un reto difícil para el 
+lector inexperto. Ensamblamos aquí para referencia los tópicos necesarios, en una 
+notación consistente usada a lo largo de este libro. Un número de pruebas más 
+técnicas que no son relevantes para nosotros son omitidas y el lector es referido 
+a un texto estándar. 
 
+\vspace{.3cm}
+
+Esta sección no pretende reemplazar un curso completo de topología y el lector no debe 
+esperar dominarla en una primera lectura.
+
+\vspace{.3cm}
+
+Se asume que el lector está familiarizado con las notaciones usuales de teoría de 
+conjuntos como $\in$, $\cup$, $\cap$ y con el concepto de un mapeo. Si 
+$A$ y $B$ son conjuntos y $f:A \rightarrow B$ es un mapeo, usualmente 
+escribimos $a \mapsto f(a)$ el efecto de el mapeo sobre el elemento 
+$a \in A$; ``ssí'' representa ``sí y solo sí'' (= ``si'' en definiciones).
+
+\subsubsection{Definiciones} \emph{Un \textbf{espacio topológico} es un 
+conjunto $S$ junto con una colección $\mathcal{O}$ de subconjuntos llamados 
+\textbf{conjuntos abiertos} tales que}
+
+\begin{enumerate}[label=(T{\arabic*})]
+ \item $\varnothing \in \mathcal{}$ y $S \in \mathcal{O}$;
+ \item \emph{Si $U_1,U_2 \in \mathcal{O}$, entonces $U_1 \cap U_2 \in \mathcal{O}$};
+ \item \emph{La unión de cualquier colección de conjuntos abiertos es abierta.}
+\end{enumerate}
+
+\emph{Para tal espacio topológico los \textbf{conjuntos cerrados} son 
+los elementos de}
+
+$$
+\Gamma = \{A | \mathcal{C} A \in \mathcal{O} \}
+$$
+
+\emph{Donde $\mathcal{C}$ denota el complemento, $\mathcal{C}A = S {\char`\\} A = \{s \in S | s \notin A\}$.
+(Los conjuntos cerrados entonces obedecen las reglas duales a las de los conjuntos abiertos.}
+
+\vspace{.3cm}
 
 \end{document}
