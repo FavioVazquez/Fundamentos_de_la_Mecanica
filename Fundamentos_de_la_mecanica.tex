@@ -1,0 +1,205 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[affil-it]{authblk}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{tikz}
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption} %Multiple images
+\usepackage{multicol} % Multiple columns
+\usepackage{float}
+\usepackage{cleveref}
+ \usepackage{relsize} % bigger math symbols
+\usepackage[margin=1.4in]{geometry}
+\usepackage[titletoc,toc,title]{appendix}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usetikzlibrary{calc}
+\numberwithin{equation}{section}
+
+\graphicspath{Tarea10/}
+
+% Circled words
+\newcommand{\circled}[2][]{%
+  \tikz[baseline=(char.base)]{%
+    \node[shape = circle, draw, inner sep = 1pt]
+    (char) {\phantom{\ifblank{#1}{#2}{#1}}};%
+    \node at (char.center) {\makebox[0pt][c]{#2}};}}
+\robustify{\circled}
+
+%Appendices in spanish
+\renewcommand{\appendixname}{Ap\'endices}
+\renewcommand{\appendixtocname}{Ap\'endices}
+\renewcommand{\appendixpagename}{Ap\'endices}
+
+%Zero delimiter
+\newcommand{\zerodel}{.\kern-\nulldelimiterspace}
+
+%Columns separation
+\setlength{\columnsep}{1cm}
+
+%Indentation
+\setlength{\parindent}{0ex}
+
+%Multiple References
+
+\crefrangelabelformat{equation}{(#3#1#4--#5\crefstripprefix{#1}{#2}#6)}
+
+\usepackage{xparse}
+
+%Boxes
+
+\newcommand*{\boxcolor}{blue}
+\makeatletter
+\renewcommand{\boxed}[1]{\textcolor{\boxcolor}{%
+\tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor\m@th$\displaystyle#1$};}}
+ \makeatother
+
+%Constantes
+\newcommand{\euler}{\mathrm{e}}
+\newcommand{\im}{i}
+
+%Lemas, teoremas, definiciones y pruebas
+\newcommand{\definicion}{\textbf{Definición: }}
+\newcommand{\lema}{\textbf{Lema: }}
+\newcommand{\teorema}{\textbf{Teorema: }}
+\newcommand{\prueba}{\textbf{Prueba: }}
+\newcommand{\proposicion}{\textbf{Proposición: }}
+\newcommand{\corolario}{\textbf{Corolario: }}
+\newcommand{\grad}{\text{grad}}
+
+% Subtitles
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+
+%opening
+{\title{{\huge Fundamentos de la Mecánica} \\
+\vspace{.2cm}
+\large Una traducción no oficial del libro \emph{Foundations of Mechanics} (2da edición) 
+de Ralph Abraham y Jerrold Marsden}
+\author{Favio Vázquez\thanks{Correo: favio.vazquezp@gmail.com}}\affil{Instituto de Ciencias Nucleares. Universidad Nacional Autónoma de México.}
+\date{}
+
+\begin{document}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large\bfseries \@title \par}%
+    \vskip 1.5em%
+    {\normalsize
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\normalsize \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+
+\maketitle
+
+\section*{Vista Previa}
+
+Para motivar la introducción a la geometría simpléctica en la mecánica, necesitamos 
+considerar brevemente las ecuaciones de Hamilton. El punto de partida es la segunda 
+ley de Newton, que establece que una partícula de masa $m > 0$ que se mueve en un 
+potencial $V(q)$, $q=(q^1,q^2,q^3) \in \mathbf{R}^3$, se mueve a lo largo de una 
+curva $q(t)$ en $\mathbf{R}^3$ de manera tal que $m\ddot{q} = - \grad{V(q)}$. Si 
+introducimos el impulso $p_i = m\dot{q}^i$ y la energía $H(q,p) = (1/2m)||p||^2 + V(q)$,
+entonces la ecuación de Newton es equivalente a las ecuaciones de Hamilton:
+
+\begin{align*}
+ \begin{cases}
+  \dot{q}^i = \partial H/\partial p_i \\
+  \dot{p}_i = - \partial H/\partial q^i,          & \text{i=1,2,3}
+\end{cases}
+\end{align*}
+
+Luego uno procede a estudiar este sistema de ecuaciones de primer orden para un $H(q,p)$ 
+general. Para hacer esto, introducimos la matriz $J = \begin{pmatrix} 0 & I \\ -I & 0\end{pmatrix}$, 
+donde $I$ es la identidad $3\times 3$, y notamos que las ecuaciones se convierten en 
+$\dot{\xi} = J\cdot \grad H(\xi)$, donde $\xi = (q,p)$. (En notación compleja, 
+haciendo $z=q+ip$, éstas pueden escribirse como $\dot{z} = -2i\partial G/\partial\overline{z}$.)
+
+\vspace{.3cm}
+
+Hagamos $X_H = J\cdot \grad H$. Entonces $\xi(t)$ satisface las ecuaciones de Hamilton
+sí y solo sí $\xi(t)$ es una curva integral de $X_H$, es decir, $\dot{\xi}(t) = X_H(\xi(t))$. La 
+relación entre $X_H$ puede ser rescrita como sigue: introducimos la forma bilineal anti-simétrica 
+$\omega$ sobre $\mathbf{R}^3\times\mathbf{R}^3$ definida por 
+
+\begin{align*}
+ \omega(v_1,v_2) = v_1 \cdot J \cdot v_2 \\
+ v_1, v_2 \in \mathbf{R}^3\times\mathbf{R}^3 \\
+ v_1 = (x_1,y_1) \\
+ v_2 = (x_2,y_2)
+\end{align*}
+
+[En notación compleja sobre $C^3 \cong \mathbf{R}^3\times\mathbf{R}^3$, 
+$\omega(v_1,v2) = - Im\langle v_1, v_2 \rangle$, donde $v_1 = x_1 + i y_1$, 
+$v_2 = x_2 + i y_2$, y $\langle \hspace{.1cm}, \hspace{.1cm} \rangle$ es el producto interno Hermitiano.]
+
+\vspace{.3cm}
+
+Entonces tenemos, para todo $\xi \in \mathbf{R}^3\times\mathbf{R}^3$ y $v \in \mathbf{R}^3\times\mathbf{R}^3$,
+
+\begin{equation*}
+ \omega (X_H(\xi), v) = dH(\xi)\cdot v
+\end{equation*}
+
+donde $dH(q,p) = (\partial H/\partial q^i, \partial H/\partial p^i)$, un vector 
+columna en $\mathbf{R}^3\times\mathbf{R}^3$, como es fácilmente comprobable. Uno llama 
+$\omega$ la \emph{forma simpléctica} sobre $\mathbf{R}^3\times\mathbf{R}^3$, y $X_H$ 
+el \emph{campo vectorial hamiltoniano} con energía $H$.
+
+\vspace{.3cm}
+
+Supongamos que hacemos el cambio de coordenadas $\eta = f(\xi)$, donde $f: \mathbf{R}^3\times\mathbf{R}^3 
+\rightarrow \mathbf{R}^3\times\mathbf{R}^3$ es suave. Si $\xi(t)$ satisface las ecuaciones 
+de Hamilton, las ecuaciones satisfechas por $\eta(t) = f(\xi(t))$ son 
+$\dot{\eta} = A\dot{\xi} = AJ\grad_\xi H(\xi) = AJA^*\grad_\eta H(\xi(\eta)$, donde 
+$(A)^{ij} = (\partial \eta^i/\partial \xi^j)$ es el jacobiano de $f$, y $A^*$ es la 
+transpuesta de $A$. Las ecuaciones para $\eta$ serán hamiltonianas con energía 
+$K(\eta) = H(\xi(\eta))$ sí y solo sí $AJA^* = J$. Una transformación que satisface 
+esta condición es llamada \emph{canónica} o \emph{simpléctica}, (o un simplectomorfismo).
+En términos de la forma simpléctica $\omega$, esta condición, denotada por $f^*\omega = \omega$, 
+dice que la transformación $f$ no cambia a $\omega$. 
+
+\vspace{.3cm}
+
+El espacio $\mathbf{R}^3\times\mathbf{R}^3$ de los $\xi$'s es llamado el \emph{espacio de 
+fases}. Para un sistema de $N$ partículas utilizaríamos $\mathbf{R}^3N\times\mathbf{R}^3N$. 
+
+\vspace{.3cm}
+
+Para muchos sistemas físicos fundamentales, el espacio de fases es una variedad más bien 
+que un espacio euclidiano. Por ejemplo, las variedades surgen frecuentemente cuando 
+las constricciones están presentes. Por ejemplo, el espacio de fases para el movimiento 
+de un cuerpo rígido es el haz tangente del grupo $SO(3)$ de las matrices ortogonales 
+$3 \times 3$ con determinante $+1$. No solo las variedades son importantes en estos
+ejemplos, sino que también su terminología y notación llevan a un entendimiento más 
+claro de la estructura básica de la mecánica.
+
+
+
+
+
+\end{document}
